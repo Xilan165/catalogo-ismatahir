@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Catálogo Romántico</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 20px;
+      background: #ffe6f0;
+      overflow-x: hidden;
+      font-family: Arial, sans-serif;
+      position: relative;
+      min-height: 100vh;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: #d63384;
+      animation: palpitar 2s infinite;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      position: relative;
+      z-index: 10;
+    }
+
+    .moño {
+      width: 80px;
+      animation: florecer 3s ease-out forwards, palpitar 2.5s infinite;
+      filter: drop-shadow(0 0 5px #ffd6ec) brightness(1.1);
+      user-select: none;
+    }
+
+    .catalogo {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: flex-start;
+      position: relative;
+      z-index: 10;
+      margin-top: 20px;
+      transform: translateX(19mm);
+    }
+
+    .producto {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      width: 150px;
+      padding: 10px;
+      text-align: center;
+      transition: transform 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .producto:hover {
+      transform: scale(1.05);
+    }
+
+    .producto img {
+      width: 100%;
+      height: auto;
+      border-radius: 6px;
+      margin-bottom: 8px;
+    }
+
+    .nombre {
+      font-weight: bold;
+      margin-bottom: 6px;
+      font-size: 1rem;
+      color: #333;
+    }
+
+    .precio {
+      color: #2a9d8f;
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    .corazon {
+      position: absolute;
+      background: #ff4d94;
+      width: 20px;
+      height: 20px;
+      transform: rotate(45deg);
+      animation-name: flotar;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+      opacity: 0.7;
+      z-index: 1;
+      bottom: 0;
+    }
+
+    .corazon::before,
+    .corazon::after {
+      content: '';
+      position: absolute;
+      background: #ff4d94;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+    }
+
+    .corazon::before {
+      top: -10px;
+      left: 0;
+    }
+
+    .corazon::after {
+      left: -10px;
+      top: 0;
+    }
+
+    @keyframes flotar {
+      0% {
+        transform: translateY(0) rotate(45deg);
+        opacity: 0;
+      }
+      30% {
+        opacity: 0.8;
+      }
+      100% {
+        transform: translateY(-120%) rotate(45deg);
+        opacity: 0;
+      }
+    }
+
+    @keyframes palpitar {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.08); }
+    }
+
+    @keyframes florecer {
+      0% { transform: scale(0); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>
+    <img src="imagenes/moño-coquette-nuevo.png" alt="Moño Coquette Izquierdo" class="moño" />
+    Novedades Ismatahir
+    <img src="imagenes/moño-coquette-nuevo.png" alt="Moño Coquette Derecho" class="moño" />
+    <span style="display:flex; align-items:center; gap:6px; margin-left: 15px; font-weight:bold; color:#25D366; font-size:1.2rem; cursor:pointer;">
+    <a href="https://wa.me/51918999720" target="_blank" style="color:#25D366; text-decoration:none;">
+      📱 WhatsApp
+    </a>
+  </span>
+  </h1>
+
+  <div class="catalogo">
+    <div class="producto">
+      <img src="imagenes/rosas-eternas6.jpg" alt="Rosas eternas" />
+      <div class="nombre">Adicional Osito</div>
+      <div class="precio">S/50.00</div>
+    </div>
+    <div class="producto">
+      <img src="imagenes/rosas-eternas2.jpg" alt="Rosas eternas 2" />
+      <div class="precio">S/35.00</div>
+    </div>
+    <div class="producto">
+      <img src="imagenes/rosas-eternas3.jpg" alt="Rosas eternas 3" />
+      <div class="precio">S/25.00</div>
+    </div>
+    <div class="producto">
+      <img src="imagenes/rosas-eternas5.jpg" alt="Rosas eternas 5" />
+      <div class="precio">S/25.00</div>
+    </div>
+    <div class="producto">
+      <img src="imagenes/rosas-eternas7.jpg" alt="Rosas eternas 5" />
+      <div class="precio">S/10.00</div>
+    </div>
+    <div class="producto">
+      <img src="imagenes/rosas-eternas8.jpg" alt="Rosas eternas 6" />
+      <div class="precio">S/10.00</div>
+    </div>
+    <div class="producto">
+      <img src="imagenes/rosas-eternas9.jpg" alt="Rosas eternas 7" />
+      <div class="precio">S/25.00</div>
+    </div>
+    <div class="producto">
+      <img src="imagenes/rosas-eternas10.jpg" alt="Rosas eternas 8" />
+      <div class="nombre">Adicional Osito</div>
+      <div class="precio">S/50.00</div>
+    </div>
+    <div class="producto">
+      <img src="imagenes/rosas-eternas11.jpg" alt="Rosas eternas 9" />
+      <div class="precio">S/50.00</div>
+    </div>
+    <div class="producto">
+      <img src="imagenes/rosas-eternas.jpg" alt="Rosas eternas 10" />
+      <div class="precio">S/20.00</div>
+    </div>
+    <div class="producto">
+      <img src="imagenes/rosas-eternas12.jpg" alt="Rosas eternas 10" />
+      <div class="precio">S/15.00</div>
+    </div>
+    <div class="producto">
+      <img src="imagenes/rosas-eternas13.jpg" alt="Rosas eternas 10" />
+      <div class="precio">S/25.00</div>
+    </div>
+    <div class="producto">
+      <img src="imagenes/rosas-eternas14.jpg" alt="Rosas eternas 10" />
+      <div class="precio">S/25.00</div>
+    </div>
+    <div class="producto">
+      <img src="imagenes/rosas-eternas15.jpg" alt="Rosas eternas 10" />
+      <div class="precio">S/35.00</div>
+    </div>
+    <div class="producto">
+      <img src="imagenes/rosas-eternas16.jpg" alt="Rosas eternas 10" />
+      <div class="precio">S/10.00</div>
+    </div>
+    <div class="producto">
+      <img src="imagenes/rosas-eternas17.jpg" alt="Rosas eternas 10" />
+      <div class="precio">S/12.00</div>
+    </div>
+    <div class="producto">
+      <img src="imagenes/rosas-eternas18.jpg" alt="Rosas eternas 10" />
+      <div class="precio">S/15.00</div>
+    </div>
+    <div class="producto">
+      <img src="imagenes/rosas-eternas19.jpg" alt="Rosas eternas 10" />
+      <div class="precio">S/12.00</div>
+    </div>
+    <div class="producto">
+      <img src="imagenes/rosas-eternas20.jpg" alt="Rosas eternas 10" />
+      <div class="precio">S/95.00</div>
+    </div><div class="producto">
+      <img src="imagenes/rosas-eternas21.jpg" alt="Rosas eternas 10" />
+      <div class="precio">S/05.00</div>
+    </div>
+    <div class="producto">
+      <img src="imagenes/rosas-eternas22.jpg" alt="Rosas eternas 10" />
+      <div class="nombre">Adicional Osito</div>
+      <div class="precio">S/50.00</div>
+    </div>
+    <div class="producto">
+      <img src="imagenes/rosas-eternas23.jpg" alt="Rosas eternas 10" />
+      <div class="precio">S/05.00</div>
+    </div>
+    <div class="producto">
+      <img src="imagenes/rosas-eternas24.jpg" alt="Rosas eternas 10" />
+      <div class="precio">S/05.00</div>
+    </div>
+    <div class="producto">
+      <img src="imagenes/rosas-eternas25.jpg" alt="Rosas eternas 10" />
+      <div class="precio">S/26.00</div>
+    </div>
+    <div class="producto">
+      <img src="imagenes/rosas-eternas26.jpg" alt="Rosas eternas 10" />
+      <div class="precio">S/15.00</div>
+    </div>
+  </div>
+
+   <script>
+    const productos = document.querySelectorAll('.producto');
+
+    productos.forEach(producto => {
+      for (let i = 0; i < 2; i++) {
+        const corazon = document.createElement('div');
+        corazon.classList.add('corazon');
+        corazon.style.left = Math.random() * 80 + '%';
+        corazon.style.animationDuration = (3 + Math.random() * 3) + 's';
+        const size = 10 + Math.random() * 15;
+        corazon.style.width = size + 'px';
+        corazon.style.height = size + 'px';
+        producto.appendChild(corazon);
+      }
+    });
+  </script>
+
+</body>
+</html>
