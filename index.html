@@ -4,141 +4,181 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Catálogo Romántico</title>
-  <style>
+ <style>
+  /* Reset y base */
+  body {
+    margin: 0;
+    padding: 20px;
+    background: #ffe6f0;
+    overflow-x: hidden;
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+  }
+
+  h1 {
+    font-size: 2.2rem;
+    color: #d63384;
+    animation: palpitar 2s infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    position: relative;
+    z-index: 10;
+    flex-wrap: wrap; /* que pueda romper línea en pantallas pequeñas */
+    text-align: center;
+  }
+
+  .moño {
+    width: 60px;
+    animation: florecer 3s ease-out forwards, palpitar 2.5s infinite;
+    filter: drop-shadow(0 0 5px #ffd6ec) brightness(1.1);
+    user-select: none;
+  }
+
+  /* Contenedor catálogo */
+  .catalogo {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center; /* centramos en móviles */
+    margin-top: 20px;
+    /* eliminamos transform que movía el contenido */
+  }
+
+  /* Cada producto */
+  .producto {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    width: 150px;
+    padding: 10px;
+    text-align: center;
+    transition: transform 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .producto:hover {
+    transform: scale(1.05);
+  }
+
+  .producto img {
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+    margin-bottom: 8px;
+  }
+
+  .nombre {
+    font-weight: bold;
+    margin-bottom: 6px;
+    font-size: 1rem;
+    color: #333;
+  }
+
+  .precio {
+    color: #2a9d8f;
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+
+  /* Corazones animados */
+  .corazon {
+    position: absolute;
+    background: #ff4d94;
+    width: 20px;
+    height: 20px;
+    transform: rotate(45deg);
+    animation-name: flotar;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    opacity: 0.7;
+    z-index: 1;
+    bottom: 0;
+  }
+
+  .corazon::before,
+  .corazon::after {
+    content: '';
+    position: absolute;
+    background: #ff4d94;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+  }
+
+  .corazon::before {
+    top: -10px;
+    left: 0;
+  }
+
+  .corazon::after {
+    left: -10px;
+    top: 0;
+  }
+
+  /* Animaciones */
+  @keyframes flotar {
+    0% {
+      transform: translateY(0) rotate(45deg);
+      opacity: 0;
+    }
+    30% {
+      opacity: 0.8;
+    }
+    100% {
+      transform: translateY(-120%) rotate(45deg);
+      opacity: 0;
+    }
+  }
+
+  @keyframes palpitar {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+  }
+
+  @keyframes florecer {
+    0% { transform: scale(0); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+
+  /* MEDIA QUERY para pantallas pequeñas */
+  @media (max-width: 480px) {
     body {
-      margin: 0;
-      padding: 20px;
-      background: #ffe6f0;
-      overflow-x: hidden;
-      font-family: Arial, sans-serif;
-      position: relative;
-      min-height: 100vh;
+      padding: 10px;
     }
 
     h1 {
-      font-size: 2.5rem;
-      color: #d63384;
-      animation: palpitar 2s infinite;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 20px;
-      position: relative;
-      z-index: 10;
+      font-size: 1.8rem;
+      gap: 10px;
+      padding: 0 10px;
     }
 
     .moño {
-      width: 80px;
-      animation: florecer 3s ease-out forwards, palpitar 2.5s infinite;
-      filter: drop-shadow(0 0 5px #ffd6ec) brightness(1.1);
-      user-select: none;
+      width: 40px;
     }
 
     .catalogo {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: flex-start;
-      position: relative;
-      z-index: 10;
-      margin-top: 20px;
-      transform: translateX(19mm);
+      gap: 10px;
+      justify-content: center;
     }
 
     .producto {
-      background: white;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      width: 150px;
-      padding: 10px;
-      text-align: center;
-      transition: transform 0.2s;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .producto:hover {
-      transform: scale(1.05);
-    }
-
-    .producto img {
-      width: 100%;
-      height: auto;
-      border-radius: 6px;
-      margin-bottom: 8px;
+      width: 45vw; /* 45% del ancho de pantalla, así ocupa espacio sin pasar el límite */
+      max-width: 180px; /* para no crecer mucho en pantallas grandes */
+      padding: 8px;
     }
 
     .nombre {
-      font-weight: bold;
-      margin-bottom: 6px;
-      font-size: 1rem;
-      color: #333;
+      font-size: 0.9rem;
     }
 
     .precio {
-      color: #2a9d8f;
-      font-size: 1.1rem;
-      font-weight: 600;
+      font-size: 1rem;
     }
-
-    .corazon {
-      position: absolute;
-      background: #ff4d94;
-      width: 20px;
-      height: 20px;
-      transform: rotate(45deg);
-      animation-name: flotar;
-      animation-timing-function: linear;
-      animation-iteration-count: infinite;
-      opacity: 0.7;
-      z-index: 1;
-      bottom: 0;
-    }
-
-    .corazon::before,
-    .corazon::after {
-      content: '';
-      position: absolute;
-      background: #ff4d94;
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-    }
-
-    .corazon::before {
-      top: -10px;
-      left: 0;
-    }
-
-    .corazon::after {
-      left: -10px;
-      top: 0;
-    }
-
-    @keyframes flotar {
-      0% {
-        transform: translateY(0) rotate(45deg);
-        opacity: 0;
-      }
-      30% {
-        opacity: 0.8;
-      }
-      100% {
-        transform: translateY(-120%) rotate(45deg);
-        opacity: 0;
-      }
-    }
-
-    @keyframes palpitar {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.08); }
-    }
-
-    @keyframes florecer {
-      0% { transform: scale(0); opacity: 0; }
-      100% { transform: scale(1); opacity: 1; }
-    }
-  </style>
+  }
+</style>
 </head>
 <body>
 
